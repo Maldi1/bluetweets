@@ -135,7 +135,7 @@ public class TwitterService {
 	public void removedata() {
 		Integer totalRows = accountRepository.getTotal() + accountTweetRepository.getTotal();
 		
-		if (totalRows >= 50) {
+		if (totalRows >= 9000) {
 			accountRepository.fn_removeDataStreamer();
 			log.info("Remove Data >> Success");
 		}
