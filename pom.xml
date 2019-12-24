@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.djinggoo.bigdataanalytic</groupId>
+	<artifactId>bluetweets</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>bluetweets</name>
+	<description>task big data analytic</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+<!-- 		twitter libs -->
+		<dependency>
+    		<groupId>com.twitter</groupId>
+    		<artifactId>util-core_2.13</artifactId>
+    		<version>19.12.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.twitter4j</groupId>
+		    <artifactId>twitter4j-core</artifactId>
+		    <version>4.0.7</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.twitter4j</groupId>
+		    <artifactId>twitter4j-stream</artifactId>
+		    <version>4.0.6</version>
+	   </dependency>
+<!-- 		twitter libs -->
+		
+<!-- 		apache spark -->
+		<dependency>
+		    <groupId>org.scala-lang</groupId>
+		    <artifactId>scala-library</artifactId>
+		    <version>2.11.12</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.spark</groupId>
+		    <artifactId>spark-streaming_2.12</artifactId>
+		    <version>2.4.4</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.spark</groupId>
+		    <artifactId>spark-sql_2.12</artifactId>
+		    <version>2.4.4</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.spark</groupId>
+		    <artifactId>spark-core_2.12</artifactId>
+		    <version>2.4.4</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.bahir</groupId>
+		    <artifactId>spark-streaming-twitter_2.11</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+<!-- 		apache spark -->
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+<!-- 		    <version>2.2.2.RELEASE</version> -->
+		</dependency>
+	
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+<!-- 			<version>2.2.2.RELEASE</version> -->
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+<!-- 			<version>42.2.6</version> -->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<finalName>bluetweets</finalName>
+	</build>
+
+</project>
