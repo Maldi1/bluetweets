@@ -3,10 +3,12 @@ package com.djinggoo.bigdataanalytic.bluetweets.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.djinggoo.bigdataanalytic.bluetweets.model.Sentiment;
 import com.djinggoo.bigdataanalytic.bluetweets.repository.SentimentRepository;
 
+@Service
 public class SentimentService {
 	
     @Autowired private SentimentRepository sentimentRepository;
