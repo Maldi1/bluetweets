@@ -8,15 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@Entity
-@Table(name = "account_tweet")
+@Entity(name = "account_tweet")
 public class AccountTweet {
 
 	@Id 

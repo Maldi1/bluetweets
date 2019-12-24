@@ -5,27 +5,27 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@Entity
-@Table(name = "SENTIMENT")
+@Entity(name = "sentiment")
 public class Sentiment {
 	
 	@Id
 	private String id;
 	
-	@Column(name = "WORD")
+	@Column(name = "word")
 	private String word;
 	
-	@Column(name = "VALUE")
+	@Column(name = "value")
 	private String value;
 	
-	@Column(name = "CREATE_AT")
+	@Column(name = "create_at")
 	private Date date;
 
+	public Sentiment() {}
+	
 }
