@@ -18,4 +18,11 @@ public interface AccountRepository extends JpaRepository<Account, String> {
 	@Query(value = "SELECT id FROM account WHERE twitter_id = :twitterId", 
 			   nativeQuery = true)
 	public String getIdByTwitterId(@Param("twitterId") long twitterId);
+	
+	@Query(value = "SELECT COUNT(*) FROM account", nativeQuery = true)
+	public Integer getTotal();
+	
+	@Query(value = "SELECT * FROM fn_removeDataStreamer()", nativeQuery = true)
+	public Integer fn_removeDataStreamer();
+	
 }

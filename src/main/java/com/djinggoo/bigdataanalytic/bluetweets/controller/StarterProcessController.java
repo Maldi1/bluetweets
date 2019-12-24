@@ -24,4 +24,12 @@ public class StarterProcessController {
 		return "pepare your self, the STREAM will be running :p :p !!!";
 	}
 
+	@GetMapping(value = "/callsp")	
+	@ResponseBody
+	@ResponseStatus(HttpStatus.OK)
+	public String callsp(){
+		twitterService.removedata();
+		return "store procedure has been running";
+	}
+	
 }

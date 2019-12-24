@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.djinggoo.bigdataanalytic.bluetweets.config.TwitterAuth;
@@ -31,8 +32,8 @@ import twitter4j.User;
 @Service
 public class TwitterService {
 	
-	@Autowired private AccountRepository userRepository;
-	@Autowired private AccountTweetRepository userTweetRepository;
+	@Autowired private AccountRepository accountRepository;
+	@Autowired private AccountTweetRepository accountTweetRepository;
 	
 	/**
 	 * Query tweet by some word
@@ -53,8 +54,8 @@ public class TwitterService {
 	 * running stream to crawl data in twitter
 	 */
 	public void runTwitterStream() {
-		userTweetRepository.deleteAll();
-		userRepository.deleteAll();
+//		accountTweetRepository.deleteAll();
+//		accountRepository.deleteAll();
 				
 		final Set<String> keywords = new HashSet<String>();
 		keywords.add("jokowi");
@@ -72,26 +73,24 @@ public class TwitterService {
 			
 			@Override
 			public void onStatus(Status status) {
-				final String statusText = status.getText();
-				
-				
+				final String statusText = status.getText();				
 				
 				for (String keyword : keywords) {
 					if (statusText.contains(keyword)) {					
 						Account account = null;
 						String id = "";
-						if (userRepository.getTotalDataByTwitterId(status.getUser().getId()) == 0) {
-							account = userRepository.save(buildAccount(status.getUser()));
+						if (accountRepository.getTotalDataByTwitterId(status.getUser().getId()) == 0) {
+							account = accountRepository.save(buildAccount(status.getUser()));
 							log.info("SUCCESS INSERT DATA USER\t\t>> ["+account.getTwitterId()+", "+account.getName()+"]");
 						}else {
-							id = userRepository.getIdByTwitterId(status.getUser().getId());
+							id = accountRepository.getIdByTwitterId(status.getUser().getId());
 							account = new Account();
 							account.setId(id);
 							log.info("SAME USER WITH ANOTHER TWEET\t>> ["+status.getUser().getId()+", "+status.getUser().getName()+"]");
 						}
 						
 						AccountTweet tweet = new AccountTweet(account, status.getId(), statusText, status.getCreatedAt(), new Date());
-						userTweetRepository.save(tweet);
+						accountTweetRepository.save(tweet);
 						log.info("SUCCESS INSERT DATA TWEET\t\t>> ["+status.getUser().getId()+", "+status.getUser().getName()+"]");					
 					}
 				}
@@ -130,6 +129,23 @@ public class TwitterService {
 		}
 	}
 	
+//	@Scheduled(fixedDelay = 60000)
+//	@Transactional
+	@Scheduled(fixedRate = 300000)
+	public void removedata() {
+		Integer totalRows = accountRepository.getTotal() + accountTweetRepository.getTotal();
+		
+		if (totalRows >= 50) {
+			accountRepository.fn_removeDataStreamer();
+			log.info("Remove Data >> Success");
+		}
+	}
+	
+	/**
+	 * Account data builder
+	 * @param twitterUser user twitter
+	 * @return account model
+	 */
 	private Account buildAccount(User twitterUser) {
 		Account account = new Account(twitterUser.getId(), 
 									  twitterUser.getName(), 
