@@ -41,34 +41,38 @@
 <!-- 		twitter libs -->
 		
 <!-- 		apache spark -->
-		<dependency>
-		    <groupId>org.scala-lang</groupId>
-		    <artifactId>scala-library</artifactId>
-		    <version>2.11.12</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.spark</groupId>
-		    <artifactId>spark-streaming_2.12</artifactId>
-		    <version>2.4.4</version>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.spark</groupId>
-		    <artifactId>spark-sql_2.12</artifactId>
-		    <version>2.4.4</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.spark</groupId>
-		    <artifactId>spark-core_2.12</artifactId>
-		    <version>2.4.4</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.bahir</groupId>
-		    <artifactId>spark-streaming-twitter_2.11</artifactId>
-		    <version>2.0.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.scala-lang</groupId> -->
+<!-- 		    <artifactId>scala-library</artifactId> -->
+<!-- 		    <version>2.11.12</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.spark</groupId> -->
+<!-- 		    <artifactId>spark-streaming_2.12</artifactId> -->
+<!-- 		    <version>2.4.4</version> -->
+<!-- 		    <scope>provided</scope> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.spark</groupId> -->
+<!-- 		    <artifactId>spark-sql_2.12</artifactId> -->
+<!-- 		    <version>2.4.4</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.spark</groupId> -->
+<!-- 		    <artifactId>spark-core_2.12</artifactId> -->
+<!-- 		    <version>2.4.4</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.bahir</groupId> -->
+<!-- 		    <artifactId>spark-streaming-twitter_2.11</artifactId> -->
+<!-- 		    <version>2.0.1</version> -->
+<!-- 		</dependency> -->
 <!-- 		apache spark -->
-		
+
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.slf4j</groupId> -->
+<!-- 		    <artifactId>jcl-over-slf4j</artifactId> -->
+<!-- 		</dependency> -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-web</artifactId>

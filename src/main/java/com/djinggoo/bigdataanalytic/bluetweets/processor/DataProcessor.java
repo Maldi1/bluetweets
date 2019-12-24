@@ -3,14 +3,6 @@ package com.djinggoo.bigdataanalytic.bluetweets.processor;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.function.Function;
-import org.apache.spark.streaming.Duration;
-import org.apache.spark.streaming.api.java.JavaDStream;
-import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
-import org.apache.spark.streaming.api.java.JavaStreamingContext;
-import org.apache.spark.streaming.twitter.TwitterUtils;
-
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
